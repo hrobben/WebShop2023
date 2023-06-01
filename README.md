@@ -2,8 +2,8 @@
 
 # Installatie
 - Ga op jouw pc in CLI (Command Line Interface, dosbox, powershell) naar jou directory: b.v.  "cd \xampp\htdocs" (prompt in dosbox word dan "C:\XAMPP\HTDOCS>")
-- Voer uit het commando: "git clone (https://github.com/hrobben/WebShop2023.git)" (hierdoor krijg je in je htdocs een subdir "zorg")
-- Ga naar de nieuwe directory "cd zorg" (je prompt word nu "C:\XAMPP\HTDOCS\ZORG")
+- Voer uit het commando: "git clone (https://github.com/hrobben/WebShop2023.git)" (hierdoor krijg je in je htdocs een subdir "webshop2023")
+- Ga naar de nieuwe directory "cd webshop2023" (je prompt word nu "C:\XAMPP\HTDOCS\WEBSHOP2023")
 - Gebuik nu composer om de installatie klaar te maken met "composer install"
 - Met "yarn install" installeer je de WebEncore in de Symfony applicatie.
 - "yarn encore dev-server" of "yarn watch" om de installatie te activeren en automatisch de wijzigingen lokaal door te voeren.
@@ -13,7 +13,7 @@
 # Enviroment ".env" bestand
 In .env bestand kun je jouw instelling voor MySQL maken.
 
-DATABASE_URL="mysql://henry:password@127.0.0.1:3306/zorg?serverVersion=8&charset=utf8mb4"
+DATABASE_URL="mysql://henry:password@127.0.0.1:3306/webshop?serverVersion=8&charset=utf8mb4"
 - Wijzig "henry:password" in eigen credentials (b.v "root:" bij XAMPP, omdat standaard geen wachtwoord nodig is in XAMPP)
 - voer uit: - php bin/console doctrine:database:create
 - voer uit: - php bin/console doctrine:schema:update --force --complete
