@@ -2,7 +2,7 @@
 
 # Installatie
 - Ga op jouw pc in CLI (Command Line Interface, dosbox, powershell) naar jou directory: b.v.  "cd \xampp\htdocs" (prompt in dosbox word dan "C:\XAMPP\HTDOCS>")
-- Voer uit het commando: "git clone https://github.com/robusoft-nl/zorg.git" (hierdoor krijg je in je htdocs een subdir "zorg")
+- Voer uit het commando: "git clone (https://github.com/hrobben/WebShop2023.git)" (hierdoor krijg je in je htdocs een subdir "zorg")
 - Ga naar de nieuwe directory "cd zorg" (je prompt word nu "C:\XAMPP\HTDOCS\ZORG")
 - Gebuik nu composer om de installatie klaar te maken met "composer install"
 - Met "yarn install" installeer je de WebEncore in de Symfony applicatie.
