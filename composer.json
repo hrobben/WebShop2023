@@ -11,8 +11,10 @@
         "doctrine/doctrine-bundle": "^2.9",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
+        "easycorp/easyadmin-bundle": "^4.6",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.21",
+        "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "6.2.*",
         "symfony/console": "6.2.*",
         "symfony/doctrine-messenger": "6.2.*",
@@ -38,9 +40,12 @@
         "symfony/twig-bundle": "6.2.*",
         "symfony/validator": "6.2.*",
         "symfony/web-link": "6.2.*",
+        "symfony/webpack-encore-bundle": "^1.16",
         "symfony/yaml": "6.2.*",
+        "symfonycasts/verify-email-bundle": "^1.13",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^2.1"
     },
     "config": {
         "allow-plugins": {

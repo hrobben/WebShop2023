@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+
+<div class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">MBORijnland Webshop</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="{{ path('app_default') }}">Home
+            <a class="p-2 text-dark" href="{{ path('app_product_index') }}">Producten</a>
+            <a class="p-2 text-dark" href="#">Support</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="p-2 text-dark" href="{{ path('admin') }}">Admin</a>
+            {% endif %}
+    </nav>
+    {% if app.user %}
+        <a class="btn btn-outline-primary" href="/logout">Logout</a>
+    {% else %}
+        <a class="btn btn-outline-primary" href="/login">Login</a>
+    {% endif %}
+</div>
+
+<div class="container">
+
+    {% block body %}{% endblock %}
+
+</div>
+<footer>
+
+</footer>
+</body>
 </html>

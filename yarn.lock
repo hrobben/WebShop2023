@@ -1006,6 +1006,11 @@
     error-stack-parser "^2.0.0"
     string-width "^4.2.3"
 
+"@popperjs/core@^2.11.6", "@popperjs/core@^2.11.7":
+  version "2.11.7"
+  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.7.tgz"
+  integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
+
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"
   resolved "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.25.24.tgz"
@@ -1022,7 +1027,7 @@
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-"@symfony/webpack-encore@^4.0.0":
+"@symfony/webpack-encore@^4.3.0":
   version "4.3.0"
   resolved "https://registry.npmjs.org/@symfony/webpack-encore/-/webpack-encore-4.3.0.tgz"
   integrity sha512-YhM6xh+aKmrWS7X7Y2CUDte4wiUm9WIo0w07KTwDLLQnOUdMHRf3wa680WXH/I3oHqD+grFa7BHPpR0sfmoGMQ==
@@ -1614,6 +1619,16 @@ boolbase@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
+
+bootstrap@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.3.tgz"
+  integrity sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==
+
+bootstrap5@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.npmjs.org/bootstrap5/-/bootstrap5-1.1.9.tgz"
+  integrity sha512-XZSujP1vsslV7iUgPHRLobe+rL7pYUvZaK2Erk0r45m00cQZz/No3Ua7cenlCFLN+gOMEWYU+ipa8Ktzz79oVA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -2764,6 +2779,11 @@ jest-worker@^29.1.2:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+jquery@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.7.0.tgz"
+  integrity sha512-umpJ0/k8X0MvD1ds0P9SfowREz2LenHsQaxSohMZ5OMNEU2r0tf8pdeEFTHMFxWVxKNyU9rTtK3CWzUCTKJUeQ==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -3226,6 +3246,11 @@ pkg-up@^3.1.0:
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
   dependencies:
     find-up "^3.0.0"
+
+popper.js@^1.16.1:
+  version "1.16.1"
+  resolved "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
+  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 postcss-calc@^8.2.3:
   version "8.2.4"
