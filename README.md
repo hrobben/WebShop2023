@@ -2,7 +2,7 @@
 
 # Installatie
 - Ga op jouw pc in CLI (Command Line Interface, dosbox, powershell) naar jou directory: b.v.  "cd \xampp\htdocs" (prompt in dosbox word dan "C:\XAMPP\HTDOCS>")
-- Voer uit het commando: "git clone (https://github.com/hrobben/WebShop2023.git)" (hierdoor krijg je in je htdocs een subdir "webshop2023")
+- Voer uit het commando: "git clone https://github.com/hrobben/WebShop2023.git" (hierdoor krijg je in je htdocs een subdir "webshop2023")
 - Ga naar de nieuwe directory "cd webshop2023" (je prompt word nu "C:\XAMPP\HTDOCS\WEBSHOP2023")
 - Gebuik nu composer om de installatie klaar te maken met "composer install"
 - Met "yarn install" installeer je de WebEncore in de Symfony applicatie.
