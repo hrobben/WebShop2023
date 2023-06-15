@@ -7,6 +7,7 @@
         "@symfony/stimulus-bridge": "^3.2.0",
         "@symfony/webpack-encore": "^4.3.0",
         "core-js": "^3.23.0",
+        "file-loader": "^6.0.0",
         "jquery": "^3.7.0",
         "regenerator-runtime": "^0.13.9",
         "webpack": "^5.74.0",
@@ -24,6 +25,15 @@
     "dependencies": {
         "bootstrap": "^5.2.3",
         "bootstrap5": "^1.1.9",
+        "ckeditor4": "^4.13.0",
+        "datatables.net-bs5": "^1.13.4",
+        "datatables.net-buttons-bs5": "^2.3.6",
+        "datatables.net-fixedcolumns-bs5": "^4.2.2",
+        "datatables.net-fixedheader-bs5": "^3.3.2",
+        "datatables.net-responsive-bs5": "^2.4.1",
+        "datatables.net-scroller-bs5": "^2.1.1",
+        "datatables.net-searchpanes-bs5": "^2.1.2",
+        "datatables.net-select-bs5": "^1.6.2",
         "popper.js": "^1.16.1"
     }
 }

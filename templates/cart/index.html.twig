@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shopping Cart!{% endblock %}
+
+{% block body %}
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <ul class="thumbnails">
+
+                {% if empty %}
+                    <h5>Your shopping cart is empty.</h5>
+                {% endif %}
+                {% set cart = app.session.get('cart') %}
+                {% set total = 0 %}
+                {% set count = 0 %}
+
+                {% if product %}
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table class="table table-responsive">
+                                <thead>
+                                <tr>
+                                    <th>Aantal</th>
+                                    <th>Code</th>
+                                    <th>Omschrijving</th>
+                                    <th class="textAlign-right">Prijs</th>
+                                    <th class="textAlign-right">Totaal</th>
+                                    <th class="textAlign-center">Aktie</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for key, item in cart %}
+                                    <tr>
+                                        {# <td>{{ key }}</td> #}
+                                        <td>{{ item }}</td>
+
+                                        {% for row in product %}
+                                            {% if row.id == key %}
+                                                <td>{{ row.category.description }}</td>
+                                                <td>{{ row.description | raw }}</td>
+                                                <td class="textAlign-right">€{{ row.price | number_format(2) }}</td>
+                                                <td class="textAlign-right">
+                                                    €{{ (row.price * item) | number_format(2) }}</td>
+                                                {% set total = total + (row.price * item) %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        <td><a href="{{ path('cart_add', {'id': key}) }}">
+                                                <button class="btn book-a-table-btn bi bi-plus-lg text-bg-info"></button>
+                                            </a><a href="{{ path('cart_remove', {'id': key}) }}">
+                                                <button class="btn book-a-table-btn bi bi-dash-lg text-bg-danger"></button>
+                                            </a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                {% endif %}
+            </ul>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <H4 class="bx-pull-right">Totaal te betalen € {{ total | number_format(2) }}</H4>
+                        <a href="{{ path('app_default') }}#menu">
+                            <button class="btn book-a-table-btn">{{ button_label|default('Verder winkelen?') }}</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn book-a-table-btn btn-success">{{ button_label|default('Afrekenen') }}</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Product;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +15,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('description')
+            ->add('longdescription', CKEditorType::class)
             ->add('price')
             ->add('category')
             ->add('imageFile', VichFileType::class,  [

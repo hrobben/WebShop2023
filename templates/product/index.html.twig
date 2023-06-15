@@ -5,11 +5,12 @@
 {% block body %}
     <h1>Product index</h1>
 
-    <table class="table">
+    <table id="lijst" class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Description</th>
+                <th>Body</th>
                 <th>Price</th>
                 <th>Image</th>
                 <th>actions</th>
@@ -20,11 +21,15 @@
             <tr>
                 <td>{{ product.id }}</td>
                 <td>{{ product.description }}</td>
+                <td>{{ product.longdescription | raw }}</td>
                 <td>{{ product.price }}</td>
                 <td><img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.description }}" class="img-fluid"></td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('cart_add', {'id': product.id}) }}">order</a>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -35,5 +40,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_new') }}">Create new</a>
+    {% if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('app_product_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}

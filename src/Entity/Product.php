@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -45,6 +46,9 @@ class Product
 
     #[ORM\Column(type: 'datetimetz', nullable: true)]
     private $createdAt;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $longdescription = null;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -133,5 +137,22 @@ class Product
         $this->category = $category;
 
         return $this;
+    }
+
+    public function getLongdescription(): ?string
+    {
+        return $this->longdescription;
+    }
+
+    public function setLongdescription(string $longdescription): self
+    {
+        $this->longdescription = $longdescription;
+
+        return $this;
+    }
+
+    public function __toString():string
+    {
+        return $this->getDescription();
     }
 }
