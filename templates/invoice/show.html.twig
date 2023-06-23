@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invoice{% endblock %}
+
+{% block body %}
+    <h1>Invoice</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ invoice.id }}</td>
+            </tr>
+            <tr>
+                <th>Moment</th>
+                <td>{{ invoice.moment ? invoice.moment|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_invoice_index') }}">back to list</a>
+
+    <a href="{{ path('app_invoice_edit', {'id': invoice.id}) }}">edit</a>
+
+    {{ include('invoice/_delete_form.html.twig') }}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set total = 0 %}
+        {% for invoice_row in invoice.invoiceRows %}
+            <tr>
+                <td>{{ invoice_row.product }}</td>
+                <td>{{ invoice_row.quantity }}</td>
+                <td>{{ invoice_row.product.price }}</td>
+                <td>{{ invoice_row.quantity*invoice_row.product.price }}</td>
+                {% set total = total + (invoice_row.quantity*invoice_row.product.price)  %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h1>Totaal = {{ total }}</h1>
+
+{% endblock %}

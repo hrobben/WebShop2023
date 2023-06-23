@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InvoiceRow{% endblock %}
+
+{% block body %}
+    <h1>InvoiceRow</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ invoice_row.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ invoice_row.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_invoice_row_index') }}">back to list</a>
+
+    <a href="{{ path('app_invoice_row_edit', {'id': invoice_row.id}) }}">edit</a>
+
+    {{ include('invoice_row/_delete_form.html.twig') }}
+{% endblock %}
