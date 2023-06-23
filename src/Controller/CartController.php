@@ -2,12 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Invoice;
+use App\Entity\InvoiceRow;
+use App\Repository\InvoiceRepository;
+use App\Repository\InvoiceRowRepository;
 use App\Repository\ProductRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function Sodium\add;
 
 /**
  * @Route("/cart", name="cart")
@@ -128,4 +133,37 @@ class CartController extends AbstractController
         return $this->redirect($this->generateUrl('cart_view'));
     }
 
+    /**
+     * @Route("/checkout", name="_checkout")
+     */
+    public function checkout(ProductRepository $productRepository, InvoiceRepository $invoiceRepository, InvoiceRowRepository $invoiceRowRepository)
+    {
+        $session = $this->requestStack->getSession();
+        $cart = $session->get('cart', array());
+
+        if ($cart) {
+            // is er betaald, we gaan er nu van uit dat het "Ja" is.
+            $invoice = new Invoice();
+            $invoice->setUser($this->getUser());
+            $invoice->setMoment(new \DateTime('now'));
+            $invoiceRepository->save($invoice, true);
+            $factid = $invoice;
+
+            foreach ($cart as $id => $quantity) {
+                $regel = new InvoiceRow();
+                $regel->setInvoice($factid);
+                $regel->setQuantity($quantity);
+                $product = $productRepository->findOneBy(['id' => $id]);
+                $regel->setProduct($product);
+
+                //$em = $this->getDoctrine()->getManager();
+                $invoiceRowRepository->save($regel, true);
+            }
+
+        }
+
+        $session->clear();
+
+        return $this->redirect($this->generateUrl('app_product_index'));
+    }
 }

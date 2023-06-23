@@ -19,10 +19,15 @@
             <th>Price</th>
             <td>{{ product.price }}</td>
         </tr>
+        <tr>
+            <th>Image</th>
+            <td><img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.description }}" class="img-fluid"></td>
+        </tr>
         </tbody>
     </table>
 
     <a href="{{ path('app_product_index') }}">back to list</a>
+    <a href="{{ path('cart_add', {'id': product.id}) }}">order</a>
 
     {% if is_granted("ROLE_ADMIN") %}
         <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>

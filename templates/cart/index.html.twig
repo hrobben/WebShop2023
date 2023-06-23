@@ -49,9 +49,9 @@
                                         {% endfor %}
 
                                         <td><a href="{{ path('cart_add', {'id': key}) }}">
-                                                <button class="btn book-a-table-btn bi bi-plus-lg text-bg-info"></button>
+                                                <button class="btn btn-primary bi bi-plus-lg"></button>
                                             </a><a href="{{ path('cart_remove', {'id': key}) }}">
-                                                <button class="btn book-a-table-btn bi bi-dash-lg text-bg-danger"></button>
+                                                <button class="btn btn-danger bi bi-dash-lg"></button>
                                             </a></td>
                                     </tr>
                                 {% endfor %}
@@ -67,10 +67,10 @@
             <div class="row">
                 <div class="col-md-10">
                     <H4 class="bx-pull-right">Totaal te betalen € {{ total | number_format(2) }}</H4>
-                        <a href="{{ path('app_default') }}#menu">
+                        <a href="{{ path('app_product_index') }}#menu">
                             <button class="btn book-a-table-btn">{{ button_label|default('Verder winkelen?') }}</button>
                         </a>
-                        <a href="#">
+                        <a href="{{ path('cart_checkout') }}">
                             <button class="btn book-a-table-btn btn-success">{{ button_label|default('Afrekenen') }}</button>
                         </a>
                 </div>

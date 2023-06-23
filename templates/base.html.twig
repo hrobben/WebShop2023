@@ -22,6 +22,9 @@
         <a class="p-2 text-dark" href="{{ path('app_default') }}">Home
             <a class="p-2 text-dark" href="{{ path('app_product_index') }}">Producten</a>
             <a class="p-2 text-dark" href="{{ path('cart_view') }}">Cart</a>
+            {% if is_granted('ROLE_USER') %}
+                <a class="p-2 text-dark" href="{{ path('app_invoice_index') }}">Invoices</a>
+            {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
                 <a class="p-2 text-dark" href="{{ path('admin') }}">Admin</a>
             {% endif %}
