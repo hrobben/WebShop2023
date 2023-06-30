@@ -44,5 +44,25 @@
 <footer>
 
 </footer>
+
+<script src="/js/jquery.collection.js"></script>
+<script type="text/javascript">
+    $('.my-selector').collection({
+        up: '<a href="#" class="btn btn-default"><span class="fa fa-arrow-up"></span></a>',
+        down: '<a href="#" class="btn btn-default"><span class="fa fa-arrow-down"></span></a>',
+        add: '<a href="#" class="btn btn-default"><span class="fa fa-plus"></span></a>',
+        remove: '<a href="#" class="btn btn-default"><span class="fa fa-trash"></span></a>',
+        duplicate: '<a href="#" class="btn btn-default"><span class="fa fa-files-o"></span></a>',
+        prefix: 'parent',
+        allow_duplicate: true,
+    });
+    $(document).on('change', '.custom-file-input', function (event) {
+        var inputFile = event.currentTarget;
+        $(inputFile).parent()
+            .find('.custom-file-label')
+            .html(inputFile.files[0].name);
+    });
+</script>
+
 </body>
 </html>
